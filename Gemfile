@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem 'active_enum', '~> 0.9.12'
+gem 'enumerated_attribute', '~> 0.2.16'
 
 group :test do 
     gem 'rspec'
