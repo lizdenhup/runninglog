@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem 'active_enum', '~> 0.9.12'
 
 group :test do 
     gem 'rspec'
