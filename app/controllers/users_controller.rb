@@ -5,8 +5,19 @@ class UsersController < Sinatra::Base
       redirect to '/workouts'
       #TODO add '/workouts' route
     else 
-      erb :'user/signup'
+      erb :'users/signup'
     end 
   end 
-  
+
+  post '/signup' do 
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      redirect to '/signup'
+    else
+      @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      @user.save
+      session[:id] = @user.id
+      redirect to '/workouts'
+    end
+  end
+
 end 

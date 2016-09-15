@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'bcrypt'
+gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
 gem 'tux'
 gem 'enumerated_attribute', '~> 0.2.16'
 
