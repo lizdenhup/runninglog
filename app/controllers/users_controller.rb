@@ -2,11 +2,20 @@ class UsersController < Sinatra::Base
 
   get '/signup' do 
     if logged_in?
-      redirect to '/workouts'
+      redirect to '/users/#{current_user.slug}'
       #TODO add '/workouts' route
     else 
       erb :'users/signup'
     end 
+  end 
+
+  get '/users/:slug' do 
+    if @user = User.find_by_slug(params[:slug])
+      @workouts = @user.workouts
+      erb :'users/show_user'
+    else 
+      redirect to '/'
+    end
   end 
 
   post '/signup' do 
