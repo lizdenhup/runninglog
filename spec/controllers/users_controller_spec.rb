@@ -18,4 +18,16 @@ describe UsersController do
       expect(last_response.location).to include('/workouts')
     end 
 
+    context 'without a username' do 
+      let!(:params) { {
+        :username => ""
+        :email => "alwaysbiking@email.com"
+        :password => "ilovebiking"
+        } }
+
+        it 'does not let a user sign up' do 
+          post '/signup', params
+          expect(last_response.location).to include('/signup')
+        end 
+    end 
 end 
