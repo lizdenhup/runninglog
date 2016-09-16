@@ -1,3 +1,3 @@
-class WorkoutsController < Sinatra::Base
+class WorkoutsController < ApplicationController
 
 end 
