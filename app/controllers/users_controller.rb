@@ -8,6 +8,14 @@ class UsersController < ApplicationController
     end 
   end 
 
+  get '/login' do 
+    if logged_in?
+      redirect to '/users/#{current_user.slug}'
+    else 
+      erb :'users/login'
+    end  
+  end 
+
   get '/users/:slug' do 
     if @user = User.find_by_slug(params[:slug])
       @workouts = @user.workouts
@@ -27,5 +35,15 @@ class UsersController < ApplicationController
       redirect to '/workouts'
     end
   end
+
+  post '/login' do 
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:id] = @user.id
+      redirect to '/users/#{current_user.slug}'
+    else
+      #TODO add flash error message detailing the problem with login attempt
+      redirect to '/users/login'
+  end 
 
 end 
