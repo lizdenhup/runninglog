@@ -44,6 +44,16 @@ class UsersController < ApplicationController
     else
       #TODO add flash error message detailing the problem with login attempt
       redirect to '/users/login'
+    end 
+  end 
+
+  get '/logout' do 
+    if logged_in?
+      session.clear
+      redirect to '/login'
+    else
+      redirect to '/'
+    end
   end 
 
 end 
