@@ -20,8 +20,17 @@ class WorkoutsController < ApplicationController
 
   post '/workouts' do 
     if logged_in?
-      @workout = Workout.new(time: params[:time], date: params[:date], workout_type: params[:workout_type], distance: params[:distance], unit: params[:unit], notes: params[:notes], user_id: current_user.id)
-      redirect to '/workouts/#{workout.id}'
+      @workout = Workout.new(time: params[:time], date: params[:date], workout_type: params[:workout_type], distance: params[:distance], unit: params[:unit], notes: params[:notes])
+      redirect to "/workouts/#{workout.id}"
+    else
+      redirect to '/login'
+    end 
+  end 
+
+  get 'workouts/:id' do 
+    if logged_in?
+      @workout = Workout.find_by_id(params[:id])
+      erb :'workouts/show_workout'
     else
       redirect to '/login'
     end 
