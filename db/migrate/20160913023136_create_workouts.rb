@@ -4,6 +4,7 @@ class CreateWorkouts < ActiveRecord::Migration
       t.time :time 
       t.date :date
       t.enum :workout_type 
+      t.float :distance
       t.enum :unit 
       t.text :notes
     end

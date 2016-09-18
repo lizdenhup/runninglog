@@ -1,0 +1,11 @@
+<h2>Welcome, <%= current_user.username %></h2>
+
+<h3>Here are your recent activities</h3>
+  <% @workouts.each do |workout| %>
+  <div>
+    <%= workout.time%>, <%= workout.date %><br>
+    <%= workout.type %><br>
+    <%= workout.distance%> <%= workout.unit %><br>
+    <%= workout.notes %>
+  </div>
+<% end %> 

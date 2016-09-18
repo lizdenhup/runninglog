@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20160913023136) do
   create_table "workouts", force: :cascade do |t|
     t.time   "time"
     t.date   "date"
-    t.string "workout_type", limit: 255
-    t.string "unit",         limit: 255
+    t.string "workout_type"
+    t.float  "distance"
+    t.string "unit"
     t.text   "notes"
   end
 
