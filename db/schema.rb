@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(version: 20160913023136) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.time   "time"
-    t.date   "date"
-    t.string "workout_type"
-    t.float  "distance"
-    t.string "unit"
-    t.text   "notes"
+    t.time    "time"
+    t.date    "date"
+    t.string  "workout_type"
+    t.float   "distance"
+    t.string  "unit"
+    t.text    "notes"
+    t.integer "user_id"
   end
 
 end

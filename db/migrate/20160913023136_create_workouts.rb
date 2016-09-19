@@ -7,6 +7,7 @@ class CreateWorkouts < ActiveRecord::Migration
       t.float :distance
       t.string :unit 
       t.text :notes
+      t.integer :user_id
     end
   end 
 end
