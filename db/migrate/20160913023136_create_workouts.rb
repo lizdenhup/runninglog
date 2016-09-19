@@ -3,9 +3,9 @@ class CreateWorkouts < ActiveRecord::Migration
     create_table :workouts do |t|
       t.time :time 
       t.date :date
-      t.enum :workout_type 
+      t.string :workout_type 
       t.float :distance
-      t.enum :unit 
+      t.string :unit 
       t.text :notes
     end
   end 
