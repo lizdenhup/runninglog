@@ -2,17 +2,6 @@ require 'pry'
 
 class WorkoutsController < ApplicationController
 
-  get '/workouts' do 
-    if logged_in?
-      @workouts = Workout.all.find_all do |workout|
-        workout.user_id == current_user.id 
-      end 
-      erb :'/workouts/workouts'
-    else
-      redirect to '/login'
-    end 
-  end 
-
   get '/workouts/new' do 
     if logged_in?
       erb :'/workouts/create_workout'
@@ -41,6 +30,16 @@ class WorkoutsController < ApplicationController
     end 
   end 
 
+    get '/workouts' do 
+    if logged_in?
+      @workouts = Workout.all.find_all do |workout|
+        workout.user_id == current_user.id 
+      end 
+      erb :'/workouts/workouts'
+    else
+      redirect to '/login'
+    end 
+  end 
 
   post '/workouts' do 
     if logged_in?
@@ -53,6 +52,22 @@ class WorkoutsController < ApplicationController
     else
       redirect to '/login'
     end 
+  end 
+
+  patch '/workouts/:id' do 
+    @workout = Workout.find_by_id(params[:id])
+    @workout.time = params[:time] 
+    @workout.date = params[:date]
+    @workout.workout_type = params[:workout_type]
+    @workout.distance = params[:distance] 
+    @workout.unit = params[:unit] 
+    @workout.notes = params[:notes] 
+    @workout.save 
+    redirect to "/workouts/#{@workout.id}"
+  end
+
+  delete '/workouts/:id/delete' do 
+
   end 
 
 end 
