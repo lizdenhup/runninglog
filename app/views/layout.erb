@@ -7,8 +7,27 @@
   <title>Runninglog</title>
   <!-- Bootstrap -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
+
+    <% if logged_in? %>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <p class="navbar-brand">Runninglog</p>
+        </div>
+
+        <div>
+          <ul class="nav navbar-nav">
+            <li><a href="/workouts/new">Add a workout</a></li>
+            <li><a href="/users/<%= "#{current_user.slug}" %>">Your profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    <% end %>
+
+
 <div class="container-fluid">
   <%= yield %> 
 </div>
