@@ -60,5 +60,5 @@ describe UsersController do
           expect(last_response.location).to include('/signup')
         end 
     end 
-    
+  end
 end 
