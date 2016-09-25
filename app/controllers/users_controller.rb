@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
-      redirect to '/users/#{current_user.slug}'
+      redirect to "/users/#{current_user.slug}"
     else
       #TODO add flash error message detailing the problem with login attempt
       redirect to '/users/login'
