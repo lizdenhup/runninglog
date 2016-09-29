@@ -1,11 +1,15 @@
-<h2>Welcome, <%= current_user.username %></h2>
+<h2> Hello, <%= current_user.username %> </h2>
+<p>Here are your recent activities</p>
 
-<h3>Here are your recent activities</h3>
   <% @workouts.each do |workout| %>
-  <div>
-    <%= workout.time%>, <%= workout.date %><br>
-    <%= workout.workout_type %><br>
-    <%= workout.distance%> <%= workout.unit %><br>
-    <%= workout.notes %>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><%=workout.workout_type.titleize%> workout <%= workout.time.strftime("at %I:%Mp")%> <%= workout.date.strftime("on %m/%d/%Y")%></div>
+  <div class="panel-body">
+    Distance: <%= workout.distance%> <%= workout.unit %><br>
+    Notes: <%= workout.notes %><br>
+    <a href="/workouts/<%= workout.id%>/edit">Edit workout</a>
   </div>
+</div>
 <% end %> 
+

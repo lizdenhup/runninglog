@@ -28,9 +28,7 @@ class WorkoutsController < ApplicationController
 
     get '/workouts' do 
     if logged_in?
-      @workouts = Workout.all.find_all do |workout|
-        workout.user_id == current_user.id 
-      end 
+      @workouts = current_user.workouts
       erb :'/workouts/workouts'
     else
       redirect to '/login'
