@@ -1,9 +1,12 @@
 <h2>Hey <%= current_user.username %></h2>
 <p>Here's your recently uploaded workout</p>
 
-  <div>
-    <%= @workout.time %>, <%= @workout.date %><br>
-    <%= @workout.workout_type %><br>
-    <%= @workout.distance%> <%= @workout.unit %><br>
-    <%= @workout.notes %>
+<div class="panel panel-default">
+  <div class="panel-heading"><%=@workout.workout_type.titleize%> workout</div>
+  <div class="panel-body">
+    Time/Date: <%= @workout.time %>, <%= @workout.date %><br>
+    Distance: <%= @workout.distance%> <%= @workout.unit %><br>
+    Notes: <%= @workout.notes %>
   </div>
+</div>
+

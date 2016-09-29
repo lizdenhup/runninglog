@@ -1,16 +1,18 @@
-<% if logged_in? %>
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <p class="navbar-brand">Runninglog</p>
-  </div>
+<h2> Hello, <%= @user.username %> </h2>
+<p>Here are your recent activities</p>
 
-  <div>
-    <ul class="nav navbar-nav">
-      <li><a href="/workouts/new">Add a workout</a></li>
-      <li><a href="/users/<%= "#{current_user.slug}" %>">Your profile</a></li>
-      <li><a href="/logout">Logout</a></li>
-    </ul>
+
+  <% @workouts.each do |workout| %>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><%=workout.workout_type.titleize%> workout <%= workout.time.strftime("at %I:%Mp")%> <%= workout.date.strftime("on %m/%d/%Y")%></div>
+  <div class="panel-body">
+    Distance: <%= workout.distance%> <%= workout.unit %><br>
+    Notes: <%= workout.notes %><br>
+    <a href="/workouts/<%= workout.id%>/edit">Edit workout</a>
   </div>
-</nav>
-<% end %>
-<p> Hello, <%= @user.username %> </p>
+</div>
+<% end %> 
+
+
+
