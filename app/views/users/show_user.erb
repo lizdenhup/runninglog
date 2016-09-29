@@ -1,7 +1,6 @@
 <h2> Hello, <%= @user.username %> </h2>
 <p>Here are your recent activities</p>
 
-
   <% @workouts.each do |workout| %>
 
 <div class="panel panel-default">
@@ -9,7 +8,12 @@
   <div class="panel-body">
     Distance: <%= workout.distance%> <%= workout.unit %><br>
     Notes: <%= workout.notes %><br>
-    <a href="/workouts/<%= workout.id%>/edit">Edit workout</a>
+    <p><a href="/workouts/<%= workout.id%>/edit"">Edit workout</a>
+    <br>
+    <form method="post" action="/workouts/<%= workout.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <button type="submit" value="submit" class="btn btn-primary">Delete workout</button>
+    </form>
   </div>
 </div>
 <% end %> 

@@ -4,9 +4,16 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%=@workout.workout_type.titleize%> workout</div>
   <div class="panel-body">
-    Time/Date: <%= @workout.time %>, <%= @workout.date %><br>
+    Time/Date: <%= @workout.time.strftime("%I:%Mp") %>, <%= @workout.date.strftime("%m/%d/%Y") %><br>
     Distance: <%= @workout.distance%> <%= @workout.unit %><br>
     Notes: <%= @workout.notes %>
+    <p><a href="/workouts/<%= @workout.id %>/edit">Edit workout</a></p><br>
+    <form method="post" action="/workouts/<%= @workout.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <button type="submit" value="submit" class="btn btn-primary">Delete workout</button>
+    </form>
   </div>
 </div>
+
+
 
