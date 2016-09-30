@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
 gem 'tux'
 gem 'enumerated_attribute', '~> 0.2.16'
+gem 'sinatra-flash', '~> 0.3.0'
 
 group :test do 
     gem 'rspec'

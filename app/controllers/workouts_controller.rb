@@ -42,6 +42,7 @@ class WorkoutsController < ApplicationController
       if @workout.save
         redirect to "/workouts/#{@workout.id}"
       else 
+        #TODO add error message
         redirect to '/workouts/new'
       end 
     else
