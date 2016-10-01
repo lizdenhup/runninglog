@@ -1,5 +1,11 @@
 
 <div class="container">
+  <ul> 
+    <% @workout.errors.messages.each do |key, value| %>
+    <li><p><%= "#{key.to_s.titleize} #{value.first}" %></p></li>
+    <% end if @workout && @workout.errors %>
+  </ul>
+
   <form action="/workouts" method="POST">
   <h2 class="form-signin-heading">Add a recent workout:</h2>
     <div class="form-group row">
@@ -21,6 +27,23 @@
     </div>
     </div>
 
+  <fieldset id="group2" class="form-group row">
+  <legend class="col-form-legend col-sm-2">Units</legend>
+    <div class="col-sm-10">
+    <div class="form-check">
+      <label class="form-check-label">
+      <input class="form-check-input" type="radio" name="unit" value="km" checked>
+      km
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+      <input class="form-check-input" type="radio" name="unit" value="miles">
+      miles
+      </label>
+    </div>
+  </fieldset>
+
 <fieldset id="group1" class="form-group row">
   <legend class="col-form-legend col-sm-2">Workout Type</legend>
     <div class="col-sm-10">
@@ -38,22 +61,6 @@
     </div>
 </fieldset>
 
-<fieldset id="group2" class="form-group row">
-  <legend class="col-form-legend col-sm-2">Units</legend>
-    <div class="col-sm-10">
-    <div class="form-check">
-      <label class="form-check-label">
-      <input class="form-check-input" type="radio" name="unit" value="km" checked>
-      km
-      </label>
-    </div>
-    <div class="form-check">
-      <label class="form-check-label">
-      <input class="form-check-input" type="radio" name="unit" value="miles">
-      miles
-      </label>
-    </div>
-  </fieldset>
   <div class="form-group">
     <label for="notes">Notes:</label>
     <textarea class="form-control" rows="5" 

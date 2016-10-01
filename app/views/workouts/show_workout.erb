@@ -4,7 +4,7 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%=@workout.workout_type.titleize%> workout</div>
   <div class="panel-body">
-    Time/Date: <%= @workout.time.strftime("%I:%Mp") %>, <%= @workout.date.strftime("%m/%d/%Y") %><br>
+    Time/Date: <%= @workout.time.strftime("%I:%Mp") if @workout.time %>, <%= @workout.date.strftime("%m/%d/%Y") if @workout.date %><br>
     Distance: <%= @workout.distance%> <%= @workout.unit %><br>
     Notes: <%= @workout.notes %>
     <p><a href="/workouts/<%= @workout.id %>/edit">Edit workout</a></p><br>

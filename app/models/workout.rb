@@ -4,10 +4,10 @@ class Workout < ActiveRecord::Base
 
   belongs_to :user
 
-  validates_presence_of :date, on: :create
-  validates_presence_of :time, on: :create
-  validates_presence_of :distance, on: :create 
-  validates_presence_of :workout_type, on: :create
-  validates_presence_of :unit, on: :create
+  validates_presence_of :date
+  validates_presence_of :time
+  validates_presence_of :distance
+  validates_presence_of :workout_type
+  validates_presence_of :unit
 
 end

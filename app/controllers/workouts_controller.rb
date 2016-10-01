@@ -42,8 +42,7 @@ class WorkoutsController < ApplicationController
       if @workout.save
         redirect to "/workouts/#{@workout.id}"
       else 
-        #TODO add error message
-        redirect to '/workouts/new'
+        erb :'/workouts/create_workout'
       end 
     else
       redirect to '/login'
@@ -58,8 +57,11 @@ class WorkoutsController < ApplicationController
     @workout.distance = params[:distance] 
     @workout.unit = params[:unit] 
     @workout.notes = params[:notes] 
-    @workout.save 
-    redirect to "/workouts/#{@workout.id}"
+    if @workout.save 
+      redirect to "/workouts/#{@workout.id}"
+    else 
+      erb :'/workouts/edit_workout'
+    end 
   end
 
   delete '/workouts/:id/delete' do 

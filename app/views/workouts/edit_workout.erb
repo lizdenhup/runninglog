@@ -1,7 +1,12 @@
 <div class="container">
+  <ul> 
+    <% @workout.errors.messages.each do |key, value| %>
+    <li><p><%= "#{key.to_s.titleize} #{value.first}" %></p></li>
+    <% end if @workout && @workout.errors %>
+  </ul>
+
   <form action="/workouts/<%=@workout.id%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
   <h2 class="form-signin-heading">Edit workout:</h2>
     <div class="form-group row">
       <label for="date" class="col-sm-2 col-form-label">Date</label>
