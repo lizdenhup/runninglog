@@ -9,10 +9,10 @@ Specs:
 - [ ] Ensure that users can't modify content created by other users - users can only see their own content.
 - [x] Include user input validations - Workouts cannot be created with blank fields (except for notes, which are optional).
 - [x] Display validation failures to user with error message (example form URL e.g. /posts/new) - I use Sinatra's built in error handler to display validation failures to the user.
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code - readme.md has a summary, installation guide, and invitation for contributors, as well as license information.
 
 Confirm
-- [x] You have a large number of small Git commits - I have over 60 git commits on this project.
+- [x] You have a large number of small Git commits - I have about 50 git commits on this project.
 - [x] Your commit messages are meaningful - Each commit contains a sentence about what I changed.
 - [x] You made the changes in a commit that relate to the commit message - See above.
 - [x] You don't include changes in a commit that aren't related to the commit message - I tried to only change one thing at a time.

@@ -8,4 +8,4 @@ To install and run Runninlog on your computer, clone this repository and cd into
 If you are interested in modifying or extending Runninglog, please feel free to fork this repository and make changes before submitting a pull request.
 
 # License
-This project is available for use under the MIT license. 
+This project is available for use under the MIT license. You can read more about this license [here](https://opensource.org/licenses/MIT).
