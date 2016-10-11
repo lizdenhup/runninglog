@@ -4,7 +4,7 @@
   <% @workouts.each do |workout| %>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%=workout.workout_type.titleize%> workout <%= workout.time.strftime("at %I:%Mp") if @workout.time %> <%= workout.date.strftime("on %m/%d/%Y") if @workout.date %></div>
+  <div class="panel-heading"><%=workout.workout_type.titleize%> workout <%= workout.time.strftime("at %I:%Mp") if workout.time %> <%= workout.date.strftime("on %m/%d/%Y") if workout.date %></div>
   <div class="panel-body">
     Distance: <%= workout.distance%> <%= workout.unit %><br>
     Notes: <%= workout.notes %><br>
